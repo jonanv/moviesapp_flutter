@@ -62,4 +62,13 @@ class Pelicula {
         overview         = json['overview'];
         releaseDate      = json['release_date'];
     }
+
+    getPosterImg() {
+        if( posterPath == null) {
+            return 'https://skirtingboardsdirect.com/wp-content/uploads/2014/12/Fallback-Image-400x400.png';
+        }
+        else {
+            return 'https://image.tmdb.org/t/p/w500/$posterPath';
+        }
+    }
 }
