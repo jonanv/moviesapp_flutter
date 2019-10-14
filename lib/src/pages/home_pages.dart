@@ -26,6 +26,12 @@ class HomePage extends StatelessWidget {
         );
     }
 
+    Widget _footer() {
+        return Container(
+            child: ,
+        );
+    }
+
     @override
     Widget build(BuildContext context) {
         return Scaffold(
