@@ -31,6 +31,7 @@ class HomePage extends StatelessWidget {
         return Container(
             width: double.infinity,
             child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                     Container(
                         padding: EdgeInsets.only(left: 20.0),
