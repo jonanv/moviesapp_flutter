@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 //My imports
 import 'package:moviesapp_flutter/src/widgets/card_swiper_widget.dart';
 import 'package:moviesapp_flutter/src/providers/peliculas_provider.dart';
+import 'package:moviesapp_flutter/src/widgets/movie_horizontal.dart';
 
 class HomePage extends StatelessWidget {
     final peliculasProvider = new PeliculasProvider();
@@ -31,12 +32,21 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             child: Column(
                 children: <Widget>[
-                    Text('Populares', style: Theme.of(context).textTheme.subhead),
+                    Container(
+                        padding: EdgeInsets.only(left: 20.0),
+                        child: Text('Populares', style: Theme.of(context).textTheme.subhead)
+                    ),
+                    SizedBox(height: 5.0),
                     FutureBuilder(
                         future: peliculasProvider.getPopulares(),
                         builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
                             // snapshot.data?.forEach((p) => print(p.title));
-                            return Container();
+                            if(snapshot.hasData) {
+                                return MovieHorizontal(peliculas: snapshot.data);
+                            }
+                            else {
+                                return Center(child: CircularProgressIndicator());
+                            }
                         },
                     ),
                 ],
